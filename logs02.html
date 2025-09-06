@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Log 02 -</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #f5f5f5;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    #log {
+      max-width: 700px;
+      line-height: 1.6;
+      animation: fadeIn 3s forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    .hidden {
+      color: #111;
+      background-color: #111;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="log">
+    <h2>[Registro 02]</h2>
+    <p>
+      Eles me encontraram na sala das cadeiras quebradas.<br>
+      Disseram que a festa nunca tinha acabado.<br>
+      Mas eu vi os olhos. Sempre os olhos.
+    </p>
+    <p>
+      Não confie no anfitrião.<br>
+      Ele <span class="hidden">está dentro do próximo código</span>.<br>
+    </p>
+    <p>
+      14 - 7 - 22<br>
+      <i>(anote… vai precisar disso depois)</i>
+    </p>
+    <p><a href="index.html" style="color:#ff4d4d;">Voltar</a></p>
+  </div>
+</body>
+</html>

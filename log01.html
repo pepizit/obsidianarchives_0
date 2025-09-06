@@ -1,27 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Log 01 - Necros</title>
-<style>
-body{background:#000;color:#f5f5f5;font-family:monospace;display:flex;justify-content:center;align-items:center;height:100vh;text-align:center;overflow:hidden;}
-#log{max-width:600px;line-height:1.6;opacity:0;animation:fade 2s forwards;}
-@keyframes fade{to{opacity:1;}}
-.glitch{position:relative;color:#f5f5f5;}
-.glitch::before,.glitch::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;overflow:hidden;}
-.glitch::before{animation:gt 2s infinite linear alternate-reverse;color:#f44;}
-.glitch::after{animation:gb 2s infinite linear alternate-reverse;color:#4ff;}
-@keyframes gt{0%{clip:rect(0,9999px,0,0);transform:translate(-2px,-2px);}25%{clip:rect(0,9999px,20px,0);transform:translate(2px,-2px);}50%{clip:rect(5px,9999px,25px,0);transform:translate(-2px,2px);}75%{clip:rect(0,9999px,20px,0);transform:translate(2px,2px);}100%{clip:rect(0,9999px,0,0);transform:translate(0,0);}}
-@keyframes gb{0%{clip:rect(0,9999px,0,0);transform:translate(2px,2px);}25%{clip:rect(0,9999px,15px,0);transform:translate(-2px,2px);}50%{clip:rect(5px,9999px,25px,0);transform:translate(2px,-2px);}75%{clip:rect(0,9999px,10px,0);transform:translate(-2px,-2px);}100%{clip:rect(0,9999px,0,0);transform:translate(0,0);}}
-a{color:#f44;text-decoration:none;}a:hover{text-decoration:underline;}
-</style>
+  <meta charset="UTF-8">
+  <title>Log 01 - Necros</title>
+  <style>
+    body {
+      background-color: black;
+      color: #f5f5f5;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    input {
+      background: #111;
+      border: 1px solid #444;
+      color: #f5f5f5;
+      padding: 8px;
+      margin-top: 10px;
+    }
+    button {
+      margin-top: 5px;
+      padding: 6px 12px;
+      background: #222;
+      color: #f5f5f5;
+      border: 1px solid #444;
+      cursor: pointer;
+    }
+    .msg {
+      margin-top: 10px;
+      color: #ff4d4d;
+    }
+  </style>
 </head>
 <body>
-<div id="log" class="glitch" data-text="Eles sempre observam...mesmo quando você acha que está sozinho."></div>
-<p><a href="index.html">Voltar à página inicial</a></p>
-<script>
-let log=document.getElementById('log'),txt=log.getAttribute('data-text');log.textContent='';let i=0;
-(function type(){if(i<txt.length){log.textContent+=txt[i++];setTimeout(type,60);}})();
-</script>
+  <h2>Digite a senha</h2>
+  <input type="password" id="senha" placeholder="...">
+  <button onclick="verificar()">Entrar</button>
+  <div class="msg" id="msg"></div>
+
+  <script>
+    function verificar() {
+      const senha = document.getElementById("senha").value.toLowerCase();
+      if (senha === "coroa") { // <-- muda aqui a senha
+        window.location.href = "log02.html";
+      } else {
+        document.getElementById("msg").textContent = "A porta não se abre para você.";
+      }
+    }
+  </script>
 </body>
 </html>

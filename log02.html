@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Log 02 -</title>
+  <title>Log 02 - Necros</title>
   <style>
     body {
       background-color: #000;
@@ -28,6 +28,11 @@
       color: #111;
       background-color: #111;
       user-select: none;
+      cursor: pointer;
+    }
+    .hidden:hover {
+      color: #ff4d4d;
+      background-color: #000;
     }
   </style>
 </head>
@@ -41,7 +46,7 @@
     </p>
     <p>
       Não confie no anfitrião.<br>
-      Ele <span class="hidden">está dentro do próximo código</span>.<br>
+      Ele <span class="hidden" onclick="goNext()">está dentro do próximo código</span>.<br>
     </p>
     <p>
       14 - 7 - 22<br>
@@ -49,5 +54,24 @@
     </p>
     <p><a href="index.html" style="color:#ff4d4d;">Voltar</a></p>
   </div>
+
+  <script>
+    // Revela o log aos poucos
+    const log = document.getElementById('log');
+    log.style.opacity = 0;
+    window.onload = () => {
+      let opacity = 0;
+      const fade = setInterval(() => {
+        opacity += 0.02;
+        log.style.opacity = opacity;
+        if(opacity >= 1) clearInterval(fade);
+      }, 30);
+    }
+
+    // Função para ir pro log03
+    function goNext() {
+      window.location.href = "log03.html";
+    }
+  </script>
 </body>
 </html>

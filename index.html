@@ -1,44 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Você não deveria estar aqui</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            color: white;
-            font-family: 'Courier New', Courier, monospace;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-        }
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: #ff0000;
-        }
-        p {
-            font-size: 1.5em;
-            color: #ffffff;
-        }
-        a {
-            color: #ff00ff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Obsidian Archive - Necros</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #f5f5f5;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    #introText {
+      max-width: 600px;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeIn 3s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    a {
+      color: #ff4d4d;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <h1>Você não deveria estar aqui</h1>
-    <p>Encontre o que está escondido… <a href="log01.html">Clique aqui para entrar</a></p>
+  <div id="introText">
+    <p class="glitch" data-text="Você não deveria estar aqui..."></p>
+    <p><a href="log01.html">Iniciar o Sistema</a></p>
+  </div>
+
+  <script>
+    // Efeito de digitação para a frase
+    const introText = document.querySelector('.glitch');
+    const text = introText.getAttribute('data-text');
+    introText.textContent = '';
+    let i = 0;
+    function typeText() {
+      if(i < text.length){
+        introText.textContent += text[i];
+        i++;
+        setTimeout(typeText, 80);
+      }
+    }
+    typeText();
+  </script>
 </body>
 </html>

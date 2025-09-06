@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Log 03</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #f5f5f5;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    #log {
+      max-width: 700px;
+      line-height: 1.6;
+      animation: fadeIn 3s forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    .hidden {
+      color: #111;
+      background-color: #111;
+      user-select: none;
+      cursor: pointer;
+    }
+    .hidden:hover {
+      color: #ff4d4d;
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div id="log">
+    <h2>[Registro 03]</h2>
+    <p>
+      A sala parecia ainda mais estranha desta vez.<br>
+      Confetes rasgados no chão, cadeiras quebradas empilhadas…<br>
+      E eu senti algo… sempre me observando.
+    </p>
+    <p>
+      O anfitrião não se cansa.<br>
+      <span class="hidden" onclick="goNext()">Ele deixa pistas, mas nunca se revela completamente.</span>
+    </p>
+    <p>
+      21 - 3 - 42<br>
+      <i>(mais números… talvez façam sentido depois)</i>
+    </p>
+    <p><a href="index.html" style="color:#ff4d4d;">Voltar</a></p>
+  </div>
+
+  <script>
+    // Revela o log aos poucos
+    const log = document.getElementById('log');
+    log.style.opacity = 0;
+    window.onload = () => {
+      let opacity = 0;
+      const fade = setInterval(() => {
+        opacity += 0.02;
+        log.style.opacity = opacity;
+        if(opacity >= 1) clearInterval(fade);
+      }, 30);
+    }
+
+    // Próximo log
+    function goNext() {
+      window.location.href = "log04.html"; // próxima página
+    }
+  </script>
+</body>
+</html>
